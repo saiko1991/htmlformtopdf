@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Card</title>
+    <meta name="description" content="Job card form for PC and laptop hardware issues">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="scripts/script.js" defer></script>
+
+</head>
+
+<body>
+    <div id="pdf-content">
+        <header>
+            <div class="header-content" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="header-logo">
+                    <img src="images/logo.png" alt="NGIP Agmark Ltd Logo" class="logo">
+                </div>
+                <div>
+                    <h1>Job Cards</h1>
+
+                </div>
+            </div>
+        </header>
+        <main class="content">
+            <div class="content-container">
+                <h2>Job Cards</h2>
+
+                <form id="job-card-form" class="job-card-form">
+                    <fieldset class="client-device-info">
+                        <legend>
+                            <h3>Choose a Job Card</h3>
+                        </legend>
+                        <div class="page-links center-links" style="margin-bottom: 1.5rem;">
+                            <a href="pc-laptop-hw-jc.html" class="nav-btn">PC & Laptop Job Card (Hardware)</a>
+                            <a href="pc-laptop-sw-jc.html" class="nav-btn">PC & Laptop Job Card (Software)</a>
+                            <a href="printer-jc.html" class="nav-btn">Printer Job Card</a>
+                            <a href="ups-jc.html" class="nav-btn">UPS Job Card</a>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+        </main>
+
+    </div>
+</body>
+<footer>
+    <p>&copy; 2023 NGIP Agmark Ltd. All rights reserved.</p>
+
+</html>

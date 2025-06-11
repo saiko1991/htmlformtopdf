@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC & Laptop Job Card</title>
+    <meta name="description" content="Job card form for PC and laptop hardware issues">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="scripts/script.js" defer></script>
+</head>
+
+<body>
+    <div id="pdf-content">
+        <header>
+            <div class="header-content" span
+                style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="header-logo">
+                    <img src="images/logo.png" alt="NGIP Agmark Ltd Logo" class="logo">
+                </div>
+
+                <div>
+                    <h1>PC & Laptop Job Card</h1>
+                    <p>Hardware Issues</p>
+                </div>
+
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="content-container">
+                <h2>Job Card Details</h2>
+
+                <form id="job-card-form" class="job-card-form">
+                    <fieldset class="client-device-info">
+                        <legend>
+                            <h3>Client/Device Information</h3>
+                        </legend>
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label for="client-name">Client Name:</label>
+                                <input type="text" id="client-name" name="client-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-number">Contact Number:</label>
+                                <input type="tel" id="contact-number" name="contact-number" required>
+                            </div>
+                        </div>
+
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label for="device-type">Device Type:</label>
+                                <select id="device-type" name="device-type" required>
+                                    <option value="">Select Device Type</option>
+                                    <option value="pc">PC</option>
+                                    <option value="laptop">Laptop</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="brand-model">Brand/Model:</label>
+                                <input type="text" id="brand-model" name="brand-model" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="issue-checklist">
+                        <legend>
+                            <h3>Issue Checklist</h3>
+                        </legend>
+                        <div class="checklist-items">
+                            <label><input type="checkbox" name="issues" value="power-supply">Power Supply
+                                Problems</label>
+                            <label><input type="checkbox" name="issues" value="hdd-failure">Hard Drive Failure</label>
+                            <label><input type="checkbox" name="issues" value="ram-issues">RAM Issues</label>
+                            <label><input type="checkbox" name="issues" value="overheating">Overheating</label>
+                            <label><input type="checkbox" name="issues" value="slow-performance">Slow
+                                Performance</label>
+                            <label><input type="checkbox" name="issues" value="gfx-failure">Graphics Card
+                                Failures</label>
+                            <label><input type="checkbox" name="issues" value="motherboard-problems">Motherboard
+                                Problems</label>
+                            <label><input type="checkbox" name="issues" value="fan-malfunction">Fan Malfunction</label>
+                            <label><input type="checkbox" name="issues" value="peripheral-failures">Peripheral
+                                Failures</label>
+                            <label><input type="checkbox" name="issues" value="battery-issues">Battery Issues</label>
+                            <label><input type="checkbox" name="issues" value="software-issues">Software Issues</label>
+                            <label><input type="checkbox" name="issues" value="network-issues">Network Issues</label>
+                            <label><input type="checkbox" name="issues" value="cable-issues">Loose/Damaged Cable
+                                Issues</label>
+                            <label><input type="checkbox" name="issues" value="other">Other</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fault-details">
+                        <legend>
+                            <h3>Fault Details</h3>
+                        </legend>
+                        <textarea id="issue-description" name="issue-description" rows="4"
+                            placeholder="Describe the issue in detail..."></textarea>
+                    </fieldset>
+
+                    <div class="image-container">
+                        <div class="image-placeholder">
+                            <img id="front-preview" class="uploaded-image">
+                            <span class="placeholder-text">Upload Photo</span>
+                            <input type="file" accept="image/*" class="upload-button" id="front-image"
+                                aria-label="Upload front view image">
+                        </div>
+                        <div class="image-placeholder">
+                            <img id="back-preview" class="uploaded-image">
+                            <span class="placeholder-text">Upload Photo</span>
+                            <input type="file" accept="image/*" class="upload-button" id="back-image"
+                                aria-label="Upload back view image">
+                        </div>
+                    </div>
+
+                    <fieldset class="fix-taken">
+                        <legend>
+                            <h3>Fix Taken</h3>
+                        </legend>
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label for="fix-details">Fix Details:</label>
+                                <textarea id="fix-details" name="fix-details" rows="4"
+                                    placeholder="Enter fix details..."></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="parts-used">
+                        <legend>
+                            <h3>Parts Used</h3>
+                        </legend>
+                        <div class="parts-list">
+                            <div class="parts-item">
+                                <div class="form-group">
+                                    <label>Part 1:</label>
+                                    <input type="text" name="part-name-1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Part 2:</label>
+                                    <input type="text" name="part-name-2">
+                                </div>
+                                <div class="form-group">
+                                    <label>Part 3:</label>
+                                    <input type="text" name="part-name-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="new-old">
+                            <label><input type="checkbox" name="parts-new" value="new">New</label>
+                            <label><input type="checkbox" name="parts-old" value="old">Old</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="additional-info">
+                        <legend>
+                            <h3>Additional Information</h3>
+                        </legend>
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label for="device-name">Device Name:</label>
+                                <input type="text" id="device-name" name="device-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="job-ticket-number">Job Ticket #:</label>
+                                <input type="text" id="job-ticket-number" name="job-ticket-number" required>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label for="date">Date:</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status:</label>
+                                <select id="status" name="status" required>
+                                    <option value="">Select Status</option>
+                                    <option value="open">Open</option>
+                                    <option value="in-progress">In Progress</option>
+                                    <option value="closed">Closed</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label for="technician-name">Technician Name:</label>
+                                <input type="text" id="technician-name" name="technician-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="technician-signature">Technician Signature:</label>
+                                <input type="text" id="technician-signature" name="technician-signature" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-actions">
+                        <button type="button" id="reset-form-btn" class="reset-button">Reset Form</button>
+                        <button type="button" id="save-pdf-btn" class="save-pdf-btn">Print Job Card (PDF)</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 NGIP Agmark Ltd. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
