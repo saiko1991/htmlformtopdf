@@ -4,16 +4,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const backImageInput = document.getElementById('back-image');
     const frontPreview = document.getElementById('front-preview');
     const backPreview = document.getElementById('back-preview');
-    const frontPlaceholder = frontImageInput.parentElement;
-    const backPlaceholder = backImageInput.parentElement;
 
-    frontImageInput.addEventListener('change', function (e) {
-        handleImageUpload(e, frontPreview, frontPlaceholder);
-    });
+    let frontPlaceholder;
+    let backPlaceholder;
+    if (frontImageInput) {
+        frontPlaceholder = frontImageInput.parentElement;
+        frontImageInput.addEventListener('change', function (e) {
+            handleImageUpload(e, frontPreview, frontPlaceholder);
+        });
+    }
 
-    backImageInput.addEventListener('change', function (e) {
-        handleImageUpload(e, backPreview, backPlaceholder);
-    });
+    if (backImageInput) {
+        backPlaceholder = backImageInput.parentElement;
+        backImageInput.addEventListener('change', function (e) {
+            handleImageUpload(e, backPreview, backPlaceholder);
+        });
+    }
 
     function handleImageUpload(event, previewElement, placeholder) {
         const file = event.target.files[0];
@@ -30,21 +36,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Reset form functionality
     const resetBtn = document.getElementById('reset-form-btn');
-    resetBtn.addEventListener('click', function () {
-        document.getElementById('job-card-form').reset();
-        frontPreview.src = '';
-        frontPreview.style.display = 'none';
-        backPreview.src = '';
-        backPreview.style.display = 'none';
-        frontPlaceholder.classList.remove('has-image');
-        backPlaceholder.classList.remove('has-image');
-    });
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function () {
+            document.getElementById('job-card-form').reset();
+            if (frontPreview) {
+                frontPreview.src = '';
+                frontPreview.style.display = 'none';
+            }
+            if (backPreview) {
+                backPreview.src = '';
+                backPreview.style.display = 'none';
+            }
+            if (frontPlaceholder) {
+                frontPlaceholder.classList.remove('has-image');
+            }
+            if (backPlaceholder) {
+                backPlaceholder.classList.remove('has-image');
+            }
+        });
+    }
 
     // Save as PDF functionality
     const savePdfBtn = document.getElementById('save-pdf-btn');
-    savePdfBtn.addEventListener('click', generatePDF);
+    if (savePdfBtn) {
+        savePdfBtn.addEventListener('click', generatePDF);
+    }
 
     function generatePDF() {
+        if (!savePdfBtn) return;
         // Show loading state
         savePdfBtn.disabled = true;
         savePdfBtn.textContent = 'Generating PDF...';
